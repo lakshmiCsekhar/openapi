@@ -1,203 +1,87 @@
 ---
 id: doc1
-title: Style Guide
-sidebar_label: Style Guide
+title: Inspera Assessment API
+sidebar_label: Inspera Assessment API
 slug: /
 ---
 
-You can write content using [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
-
-## Markdown Syntax
-
-To serve as an example page when styling markdown based Docusaurus sites.
-
-## Headers
-
-# H1 - Create the best documentation
-
-## H2 - Create the best documentation
-
-### H3 - Create the best documentation
-
-#### H4 - Create the best documentation
-
-##### H5 - Create the best documentation
-
-###### H6 - Create the best documentation
-
----
-
-## Emphasis
-
-Emphasis, aka italics, with *asterisks* or _underscores_.
-
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
-
-Combined emphasis with **asterisks and _underscores_**.
-
-Strikethrough uses two tildes. ~~Scratch this.~~
-
----
-
-## Lists
-
-1. First ordered list item
-1. Another item
-   - Unordered sub-list.
-1. Actual numbers don't matter, just that it's a number
-   1. Ordered sub-list
-1. And another item.
-
-* Unordered list can use asterisks
-
-- Or minuses
-
-+ Or pluses
-
----
-
-## Links
-
-[I'm an inline-style link](https://www.google.com/)
-
-[I'm an inline-style link with title](https://www.google.com/ "Google's Homepage")
-
-[I'm a reference-style link][arbitrary case-insensitive reference text]
-
-[You can use numbers for reference-style link definitions][1]
-
-Or leave it empty and use the [link text itself].
-
-URLs and URLs in angle brackets will automatically get turned into links. http://www.example.com/ or <http://www.example.com/> and sometimes example.com (but not on GitHub, for example).
-
-Some text to show that the reference links can follow later.
-
-[arbitrary case-insensitive reference text]: https://www.mozilla.org/
-[1]: http://slashdot.org/
-[link text itself]: http://www.reddit.com/
-
----
-
-## Images
-
-Here's our logo (hover to see the title text):
-
-Inline-style: ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 1')
-
-Reference-style: ![alt text][logo]
-
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png 'Logo Title Text 2'
-
-Images from any folder can be used by providing path to file. Path should be relative to markdown file.
-
-![img](../static/img/logo.svg)
-
----
-
-## Code
-
-```javascript
-var s = 'JavaScript syntax highlighting';
-alert(s);
-```
-
-```python
-s = "Python syntax highlighting"
-print(s)
-```
-
-```
-No language indicated, so no syntax highlighting.
-But let's throw in a <b>tag</b>.
-```
-
-```js {2}
-function highlightMe() {
-  console.log('This line can be highlighted!');
-}
-```
-
----
-
-## Tables
-
-Colons can be used to align columns.
-
-| Tables        |      Are      |   Cool |
-| ------------- | :-----------: | -----: |
-| col 3 is      | right-aligned | \$1600 |
-| col 2 is      |   centered    |   \$12 |
-| zebra stripes |   are neat    |    \$1 |
-
-There must be at least 3 dashes separating each header cell. The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.
-
-| Markdown | Less      | Pretty     |
-| -------- | --------- | ---------- |
-| _Still_  | `renders` | **nicely** |
-| 1        | 2         | 3          |
-
----
-
-## Blockquotes
-
-> Blockquotes are very handy in email to emulate reply text. This line is part of the same quote.
-
-Quote break.
-
-> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can _put_ **Markdown** into a blockquote.
-
----
-
-## Inline HTML
-
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
-
----
-
-## Line Breaks
-
-Here's a line for us to start with.
-
-This line is separated from the one above by two newlines, so it will be a _separate paragraph_.
-
-This line is also a separate paragraph, but... This line is only separated by a single newline, so it's a separate line in the _same paragraph_.
-
----
-
-## Admonitions
 
 :::note
 
-This is a note
+This document provides general documentation on the Inspera APIs and a quick user guide on getting started. If you have any questions, requests or need any assistance, feel free to get in touch via api@inspera.no or your dedicated contact.
+
+Are you looking for general information on integrations with Inspera Assessment? If so, take a look at APIs and Integrations.
 
 :::
 
-:::tip
 
-This is a tip
+## General information
+The Inspera Assessment API is a set of open REST APIs allowing external systems to access a subset of Inspera Assessment functionality using Inspera Assessment user privileges. The functionality provided will include creating and updating tests, assigning and removing learners and contributors from tests, exporting results and responses after grading, as well as user management. 
 
+We develop and update and add new APIs continuously. All changes and additions to existing APIs, as well as new developed APIs and API roadmap plans are announced through Inspera's release notes. Please see our product site to learn about how to subscribe to release notes here: https://support.inspera.com/hc/en-us/articles/360038889831-Product-updates-release-notes-2020
+
+
+### Inspera APIs in customer landscape
+Illustration of how APIs fit into customer system landscape (APIs and integration in general are presented as blue blocks)
+
+![img](../static/img/Skjermbilde 2020-10-11 kl. 22.10.10.png)
+
+Inspera's APIs are build as groups of APIs, depending on the functions and modules in Inspera Assessment they touch upon:
+
+1. **Candidate API group** (handle export of learner submissions and results export)
+- Export of learners submissions (PDF)
+- Export of learners results (JSON)
+2. **Test API group** (APIs to transfer test events to Inspera Assessment)
+- Create or update tests
+- Assign or remove learners and contributors
+- Export of test materials (PDF / QTI)
+- Export of test metadata
+- Register or redraw appeals
+- Set or change test settings NEW
+- Register or export explanations
+- Search tests based on criteria
+3. **Users API group** (transfer users from external systems to Inspera Assessment)
+- Create, update or delete administrative users
+- Create or update learners (students)
+- Search for users
+- Export user information
+
+We also provide set of Webhooks and events to make  machine - to - machine integrations possible. Inspera provides a set of events that systems can subscribe to and act accordingly to make workflows between systems possible. We update and add new events continuously, full overview over available events can be obtained from GET action on the following: https://ia.inspera.no/apidoc/#/webhooks_(beta)/listAllSubscriptions 
+
+## Getting started
+### First steps
+To get started, you will need a user in Inspera Assessment, with Administrator privileges. From the user profile interface, you will then be able to access Authorization details for either yourself or other Inspera users in your organization. These authorization details will include an authentication code. In addition to this code,  client id is needed to be able to send API call to obtain authorization token. This will be explained later in this document.
+
+The authentication code will be accessible only once and if a user loses or forgets their authorization code, any administrator for your organization will be able to revoke that user's access and generate a new code for them.
+
+
+
+::: Important note
+Users whose API authorization code will be used to make API calls must have "extended access" privileges.
+
+We strongly recommend to create dedicated Integration user on your Inspera Assessment system, with only "extended access" privilege, and use API authorization code from this user for integration API calls. This is to make integration user-independent. 
 :::
 
-:::important
+Where is API key in Inspera Assessment user interface?
 
-This is important
+Open "User administration" from Inspera Assessment main page and search for user you want to generate key for. The following will appear on the screen:
 
-:::
+pic 1
+pic2 
+pic 3
 
-:::caution
+How to obtain client_ID?
+"client_ID" is a parameter needed for the correct access token to be generated. This value is, in most cases, host-part of the domain of your Inspera Assessment url. For instance, if your Inspera URL is https://test.inspera.com/ , clientID will be "test".  However, this may not be the case for all clients, in which case, please contact us at api@inspera.com.
 
-This is a caution
+Once a user has their authorization code and have obtained client id, they will be able to start using the APIs.
 
-:::
+Update release December 2020:
 
-:::warning
+ClientID is now visible in Inspera Assessment together with API key generation field:
 
-This is a warning
+pic clientid 
 
-:::
+Authentication and access tokens
+
+An authentication code and client id are not directly used to access the APIs - a user will first have to call the Authenticate API (see below) and acquire a short-lived access token. All of the actual API calls will then be made using this token. Once a token expires, users will need to acquire a new one, using either the original authentication code, or using a refresh token provided by the Authenticate API (refresh tokens are not implemented at the moment).
+
